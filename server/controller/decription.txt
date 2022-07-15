@@ -1,0 +1,2 @@
+The controller is going to control the buisness logic of the model 
+that we creating - operation will be GET, POST, DELETE and PUT

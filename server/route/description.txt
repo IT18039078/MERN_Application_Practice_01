@@ -1,0 +1,2 @@
+This route is used to link the controller methods that handle the buisness 
+logics with the HTTP method like GET, POST, DELETE and UPDATE
