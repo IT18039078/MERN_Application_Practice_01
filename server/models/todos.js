@@ -12,6 +12,6 @@ const todoSchema = new Schema({
 }, {timestamps: true})
 
 //making the model from the schema 
-const Todo = mongoose.model('Todo', todoSchema)
+const Todo = mongoose.model('Todos', todoSchema)
 //export the model to import where ever want 
 export default Todo;
