@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Preloader from "./component/preloader";
-import { createTodo, readTodos, updateTodo } from "./functions";
+import { createTodo, deleteTodo, readTodos, updateTodo } from "./functions";
 
 
 function App() {
@@ -56,6 +56,13 @@ function App() {
       }
         
   }
+  // this function for removing the todo from the list 
+  const removeTodo = async(id)=>{
+    await deleteTodo(id);
+    const todoCopy = [...todos];
+    todoCopy.filter(todo=> todo._id !== id);
+    setTodos(todoCopy);
+  }
   
   return (
     <div className="container">
@@ -101,7 +108,7 @@ function App() {
               className="collection-item" style={{listStyle:'none'}}>
                 <div><h5>{todo.title}</h5>
                 <p> {todo.content}
-                <a href="#!" className="secondary-content">
+                <a href="#!" className="secondary-content" onClick={()=>removeTodo(todo._id)}>
                 <i className="material-icons">delete</i>
                 </a></p></div>
               </li>  

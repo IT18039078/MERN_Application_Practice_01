@@ -37,3 +37,14 @@ export const updateTodo = async (req,res)=>{
     await Todo.findByIdAndUpdate(id,todo,{new:true})
     res.json(todo)
 }
+
+// delete functionality buidling in controller
+export const deleteTodo = async (req,res)=>{
+    const {id} = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).send(`The id ${id} is not valid`)
+    }
+
+    await Todo.findByIdAndDelete(id)
+    res.json({message: 'Todo deleted successfully'})
+}
