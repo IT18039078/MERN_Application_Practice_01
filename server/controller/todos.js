@@ -25,3 +25,15 @@ export const createTodo = async (req, res)=>{
     }
 }
 
+// controller function for the update of todo
+export const updateTodo = async (req,res)=>{
+    const {id} = req.params;
+    const {title, content} = req.body;
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).send(`The id ${id} is not valid`)
+    }
+
+    const todo = {title, content, _id:id};
+    await Todo.findByIdAndUpdate(id,todo,{new:true})
+    res.json(todo)
+}

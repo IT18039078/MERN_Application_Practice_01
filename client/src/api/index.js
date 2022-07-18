@@ -7,3 +7,4 @@ const url = "http://localhost:5000/todos";
 //call the developed api that responnsible for reading informatio aof the todo
 export const readTodo = () =>axios.get(url)
 export const createTodo = newTodo => axios.post(url, newTodo);
+export const updateTodo = (id,updateTodo)=>axios.patch(`${url}/${id}`, updateTodo)
