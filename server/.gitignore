@@ -1,0 +1,2 @@
+# this is because the node module will not push into the git repository
+node_modules/

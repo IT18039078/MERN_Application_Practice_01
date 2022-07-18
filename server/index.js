@@ -17,7 +17,8 @@ app.use(cors());
 //between db and cleint side 
 app.use('/todos', todoRouter);
 
-const mongodb = "mongodb+srv://WC1:wc123@cluster0.tvbu1.mongodb.net/MERN_01?retryWrites=true&w=majority"
+// we removing this from the code because this section going to handle by the .env file 
+// const mongodb = "mongodb+srv://WC1:wc123@cluster0.tvbu1.mongodb.net/MERN_01?retryWrites=true&w=majority"
 
 app.get('/',(req, res)=>{
     res.send('Welcome to servers')
@@ -25,7 +26,7 @@ app.get('/',(req, res)=>{
 
 // configuration for port number 
 const PORT = process.env.PORT || 5000; // ? why we use this dotenv configuration
-mongoose.connect(mongodb).then(()=>{
+mongoose.connect(process.env.mongodb).then(()=>{
     console.log(`server rinning on ${PORT}`)
     app.listen(PORT) 
 }).catch(err=>console.log(err))
